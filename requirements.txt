@@ -1,2 +1,2 @@
-qbittorrentapi
+qbittorrent-api
 requests
