@@ -28,11 +28,11 @@ conn_info = dict(
     username=conf['rpc_username'],
     password=conf['rpc_passwd']
 )
-proxy = {}
+proxies = {}
 if conf['proxy']:
-    proxy = {
+    proxies = {
         "http": "http://"+conf['proxy'],
-        "https": "https://"+conf['proxy']
+        "https": "http://"+conf['proxy']
     }
 
 qbt_client = qbittorrentapi.Client(**conn_info)
@@ -59,7 +59,7 @@ Filter_List = conf['filter_list']
 def update_trackersList():
     TrackersList_text = ''
     for x in TrackersListUrl:
-        req = requests.get(x, proxies=proxy)
+        req = requests.get(x, proxies=proxies)
         TrackersList_text += req.text
 
     TrackersList = [x for x in TrackersList_text.splitlines() if len(x) > 1]
