@@ -1,0 +1,2 @@
+qbittorrentapi
+requests
