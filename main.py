@@ -13,7 +13,7 @@ LOG = get_logger(__name__, 'INFO')
 # change_torrent
 if not os.path.exists('conf.json'):
     with open('conf.json', 'w', encoding='UTF-8') as w:
-        w.write('{\n    "trackers_list_url":[\n        "https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt",\n        "https://cdn.staticaly.com/gh/XIU2/TrackersListCollection/master/best.txt"\n    ],\n    "rpc_host":"",\n    "rpc_username":"",\n    "rpc_passwd":"",\n    "rpc_port":9092,\n    "proxy":"",\n    "filter_list": [\n        "htm", "html", "apk", "url", "直播大秀平台", "网址", "APP"\n    ]\n}')
+        w.write('{\n    "trackers_list_url":[\n        "https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt",\n        "https://raw.githubusercontent.com/XIU2/TrackersListCollection/master/best.txt"\n    ],\n    "rpc_host":"",\n    "rpc_username":"",\n    "rpc_passwd":"",\n    "rpc_port":9092,\n    "proxy":"",\n    "filter_list": [\n        "htm", "html", "apk", "url", "直播大秀平台", "网址", "APP"\n    ]\n}')
     print('请先手动conf.json配置')
     sys.exit()
 
