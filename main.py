@@ -156,11 +156,15 @@ if __name__ == "__main__":
     trackersList_json = get_track_list()
     trackersList = trackersList_json['TrackersList']
     for torrent in qbt_client.torrents_info():
+        if torrent.category =='mybt' and torrent.state=='stalledUP':
+            qbt_client.torrents_delete(torrent_hashes=torrent.hash)
+            continue
         filter_file(torrent)  # 过滤垃圾文件
         '''非私种添加tracker'''
-        is_private = qbt_client.torrents_properties(
-            torrent_hash=torrent.hash).is_private
-        if not is_private:
+        _torrent = qbt_client.torrents_properties(
+            torrent_hash=torrent.hash)
+        
+        if not _torrent.is_private:
             torrent_add_trackers(torrent, trackersList)
 
     qbt_client.auth_log_out()
