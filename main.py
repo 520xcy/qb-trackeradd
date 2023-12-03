@@ -156,7 +156,7 @@ if __name__ == "__main__":
     trackersList_json = get_track_list()
     trackersList = trackersList_json['TrackersList']
     for torrent in qbt_client.torrents_info():
-        if torrent.category =='mybt' and torrent.state=='stalledUP':
+        if torrent.category =='mybt' and torrent.progress == 1:
             qbt_client.torrents_delete(torrent_hashes=torrent.hash)
             continue
         filter_file(torrent)  # 过滤垃圾文件
