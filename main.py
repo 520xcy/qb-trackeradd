@@ -115,7 +115,7 @@ def filter_file(torrent):
                 unwant_list.append(file.index)
                 LOG.info(f'不下载：{file.name}')
                 break
-        if len(_filename.encode('utf-8')) > 250:
+        if len(_filename.encode('utf-8')) > 200:
             try:
                 new_path = os.path.join(
                     _basename, str(file.index)+_filename[int(len(_filename)/2):])
